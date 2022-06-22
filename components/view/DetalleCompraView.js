@@ -4,12 +4,13 @@ import { StyleSheet, Text, View, ActivityIndicator, TextInput, ScrollView, Butto
 import Flatbutton from "../../button/button";
 import Flatbutton2 from "../../button/button2";
 //Model
-import { TblCompra } from "../../Model/TblCompra";
+import { TblDetalleCompra } from "../../Model/TblDetalleCompra";
 //Components
 import { CardCompra } from "../utility/CardCompra";
+import { CardDetalleCompra } from "../utility/CardDetalleCompra";
 
 
-class CompraView extends React.Component {
+class DetalleCompraView extends React.Component {
 	constructor(props) {
 		super();
 		this.props = props
@@ -18,15 +19,15 @@ class CompraView extends React.Component {
 			Dataset: [],
 
 		};
-		this.Compras = new TblCompra();
-		this.CargarCompra();
+		this.DetalleCompras = new TblDetalleCompra();
+		this.CargarDetalleCompra();
 	}
 	
-	CargarCompra = async (param = "") => {
-		const Compras = await this.Compras.Get(param);
+	CargarDetalleCompra = async (param = "") => {
+		const DetalleCompras = await this.DetalleCompras.Get(param);
 		this.setState({
 			isLoading: false,
-			Dataset: Compras,
+			Dataset: DetalleCompras,
 		});
 	};
 
@@ -43,20 +44,17 @@ class CompraView extends React.Component {
 				{/* <Text style={styles.Title}>Compras View</Text> */}
 				<Flatbutton  text='<- Regresar' onPress={() =>
                 this.props.navigation.navigate("Home")}/>
-                 <Flatbutton text="+ Realizar Nueva Compra" onPress={()=>{
-				this.props.navigation.navigate("FrmCompra");
-				}}/> 
 				<TextInput
 					style={styles.InputStyle}
 					placeholder="Buscar"
-					onChangeText={(val) => this.CargarCompra(val)}
+					onChangeText={(val) => this.CargarDetalleCompra(val)}
 				></TextInput>
 				{this.state.isLoading ? (
 					<ActivityIndicator />
 				) : (
-					this.state.Dataset.map((compra) => (
-						<CardCompra key={compra.idcompra} 
-						data={compra} />
+					this.state.Dataset.map((detallecompra) => (
+						<CardDetalleCompra key={detallecompra.iddetallecompra} 
+						data={detallecompra} />
 					))
 				)}
 
@@ -66,7 +64,7 @@ class CompraView extends React.Component {
 	}
 
 }
-export { CompraView };
+export { DetalleCompraView };
 
 const styles = StyleSheet.create({
 

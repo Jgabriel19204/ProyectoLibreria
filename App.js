@@ -12,6 +12,8 @@ import { FrmCompra } from "./components/view/FrmCompra";
 import { ProveedorView } from "./components/view/ProveedorView";
 import { CompraView } from "./components/view/CompraView";
 import { BottomTab } from "./components/view/BottomTab";
+import { FrmDetalleCompra } from "./components/view/FrmDetalleCompra";
+import { DetalleCompraView } from "./components/view/DetalleCompraView";
 
 
 export default function App() {
@@ -21,13 +23,18 @@ export default function App() {
 			<Stack.Navigator screenOptions={{ headerShown: false }} >
 				<Stack.Screen name="LoginView" component={LoginView} />
 				<Stack.Screen name="Home" component={Home} />
+				<Stack.Screen name="BottomTab" component={BottomTab} />
 				<Stack.Screen name="ArticulosView" component={ArticulosView} />
-				<Stack.Screen name="FrmCompra" component={FrmCompra} />
+				<Stack.Screen name="FrmCompra" component={FrmCompra} /> 
+				<Stack.Screen name="FrmDetalleCompra" component={FrmDetalleCompra} /> 
 				<Stack.Screen name="ProveedorView" component={ProveedorView} />
 				<Stack.Screen name="CompraView" component={CompraView}/>
-				<Stack.Screen name="BottomTab" component={BottomTab}/>
+				<Stack.Screen name="DetalleCompraView" component={DetalleCompraView}/>
+
+
 			</Stack.Navigator>
 		</NavigationContainer>
+		
 
 		// <View style={styles.container}>
 		// 	<Text style={styles.title}>ReactNative</Text>

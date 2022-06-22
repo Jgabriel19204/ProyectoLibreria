@@ -7,7 +7,7 @@ import Flatbutton, { } from "../../button/button";
 
 import Flatbutton2, { } from "../../button/button2";
 
-class FrmCompra extends React.Component {
+class FrmDetalleCompra extends React.Component {
     constructor(props) {
         super();
         this.state = {}
@@ -15,42 +15,27 @@ class FrmCompra extends React.Component {
     }
     render() {
         return (<ScrollView style={styles.container}>
-            <Text style={{ color: "white", alignSelf: "center", fontSize: 25 }}>REGISTRAR COMPRAS</Text>
+            <Text style={{ color: "white", alignSelf: "center", fontSize: 25 }}>REGISTRAR DETALLE</Text>
             <TextInput style={styles.InputStyle}
                 placeholder="id Compra"
                 onChangeText ></TextInput>
             <TextInput style={styles.InputStyle}
-                placeholder="Fecha de Compra"
+                placeholder="id Articulo"
                 multiline
                 numberOfLines={1}
                 onChangeText ></TextInput>
             <TextInput style={styles.InputStyle}
-                placeholder="IdUsuario"
+                placeholder="Precio Compra"
                 multiline
                 numberOfLines={1}
                 onChangeText ></TextInput>
             <TextInput style={styles.InputStyle}
-                placeholder="Sub Total"
-                multiline
-                numberOfLines={1}
-                onChangeText ></TextInput>
-            <TextInput style={styles.InputStyle}
-                placeholder="Iva"
+                placeholder="Cantidad Compra"
                 multiline
                 numberOfLines={1}
                 onChangeText ></TextInput>
             <TextInput style={styles.InputStyle}
                 placeholder="Descuento"
-                multiline
-                numberOfLines={1}
-                onChangeText ></TextInput>
-            <TextInput style={styles.InputStyle}
-                placeholder="Total Compra"
-                multiline
-                numberOfLines={1}
-                onChangeText ></TextInput>
-            <TextInput style={styles.InputStyle}
-                placeholder="id Proveedor"
                 multiline
                 numberOfLines={1}
                 onChangeText ></TextInput>
@@ -61,18 +46,18 @@ class FrmCompra extends React.Component {
             }}></Button> */}
 
 
-            <Flatbutton2 text='Guardar compra' onPress={() =>
-                this.props.navigation.navigate("FrmDetalleCompra")} />
+            <Flatbutton2 text='Guardar compra Completa' onPress={() => { }} ></Flatbutton2>
+
 
             <Flatbutton text='Cancelar y Regresar' onPress={() =>
-                this.props.navigation.navigate("Home")} />
+                this.props.navigation.navigate("FrmCompra")} />
 
         </ScrollView>)
     }
 }
 
 
-export { FrmCompra }
+export { FrmDetalleCompra }
 const styles = StyleSheet.create({
     InputStyle: {
         padding: 10,
