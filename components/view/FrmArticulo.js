@@ -1,13 +1,11 @@
 import React from 'react';
 
 import { StyleSheet, Text, Button, View, ActivityIndicator, TextInput, ScrollView } from 'react-native';
-import { CardMercancia } from '../utility/FrmMercancia';
-
 import Flatbutton, { } from "../../button/button";
 
 import Flatbutton2, { } from "../../button/button2";
 
-class FrmDetalleCompra extends React.Component {
+class FrmArticulo extends React.Component {
     constructor(props) {
         super();
         this.state = {}
@@ -15,39 +13,29 @@ class FrmDetalleCompra extends React.Component {
     }
     render() {
         return (<ScrollView style={styles.container}>
-            <Text style={{ color: "white", alignSelf: "center", fontSize: 25 }}>REGISTRAR DETALLE</Text>
+            <Text style={{ color: "white", alignSelf: "center", fontSize: 25 }}>REGISTRAR ARTICULO COMPRADO</Text>
             <TextInput style={styles.InputStyle}
-                placeholder="id Compra"
+                placeholder="Nombre Articulo"
                 onChangeText ></TextInput>
             <TextInput style={styles.InputStyle}
-                placeholder="id Articulo"
+                placeholder="Descripcion Articulo"
                 multiline
                 numberOfLines={1}
                 onChangeText ></TextInput>
             <TextInput style={styles.InputStyle}
-                placeholder="Precio Compra"
+                placeholder="Id Categoria"
                 multiline
                 numberOfLines={1}
                 onChangeText ></TextInput>
             <TextInput style={styles.InputStyle}
-                placeholder="Cantidad Compra"
+                placeholder="Id Marca"
                 multiline
                 numberOfLines={1}
                 onChangeText ></TextInput>
-            <TextInput style={styles.InputStyle}
-                placeholder="Descuento"
-                multiline
-                numberOfLines={1}
-                onChangeText ></TextInput>
+  
 
-
-            {/* Gjuardar y regresar*/}
-            {/* <Button title='Guardar Compra' onPress={() => {
-            }}></Button> */}
-
-
-            <Flatbutton2 text='Finalizar Compra' onPress={() =>
-                this.props.navigation.navigate("BottomTab")} />
+            <Flatbutton2 text='Guardar Articulo'onPress={() =>
+                this.props.navigation.navigate("FrmDetalleCompra")} />
 
             <Flatbutton text='Cancelar y Regresar' onPress={() =>
                 this.props.navigation.navigate("FrmCompra")} />
@@ -57,7 +45,7 @@ class FrmDetalleCompra extends React.Component {
 }
 
 
-export { FrmDetalleCompra }
+export { FrmArticulo }
 const styles = StyleSheet.create({
     InputStyle: {
         padding: 10,

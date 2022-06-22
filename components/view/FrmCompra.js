@@ -62,10 +62,10 @@ class FrmCompra extends React.Component {
 
 
             <Flatbutton2 text='Guardar compra' onPress={() =>
-                this.props.navigation.navigate("FrmDetalleCompra")} />
+                this.props.navigation.navigate("FrmArticulo")} />
 
             <Flatbutton text='Cancelar y Regresar' onPress={() =>
-                this.props.navigation.navigate("Home")} />
+                this.props.navigation.navigate("CompraView")} />
 
         </ScrollView>)
     }

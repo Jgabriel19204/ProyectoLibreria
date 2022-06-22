@@ -16,7 +16,7 @@ class CompraView extends React.Component {
 		this.state = {
 			isLoading: true,
 			Dataset: [],
-
+			CompraSeleccionada: {}
 		};
 		this.Compras = new TblCompra();
 		this.CargarCompra();
@@ -30,6 +30,18 @@ class CompraView extends React.Component {
 		});
 	};
 
+	CargarDetalle = async (Compra = (new TblCompra())) => {
+		const DetalleCompra = await Compra.TblDetalleCompra.get();
+		this.setState({
+			CompraSeleccionada: Compra,
+			DetalleCompra: DetalleCompra
+		});
+		this.props.navigation.navigate('DetalleCompraView', 
+		{
+			Compras: Compra,
+			Dataset: this.state.DetalleCompra,
+		})
+	};
 
 
 	render() {
@@ -56,6 +68,7 @@ class CompraView extends React.Component {
 				) : (
 					this.state.Dataset.map((compra) => (
 						<CardCompra key={compra.idcompra} 
+						CargarDetalle={this.CargarDetalle}
 						data={compra} />
 					))
 				)}

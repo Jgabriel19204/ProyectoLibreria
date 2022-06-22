@@ -14,6 +14,7 @@ import { CompraView } from "./components/view/CompraView";
 import { BottomTab } from "./components/view/BottomTab";
 import { FrmDetalleCompra } from "./components/view/FrmDetalleCompra";
 import { DetalleCompraView } from "./components/view/DetalleCompraView";
+import { FrmArticulo } from "./components/view/FrmArticulo";
 
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
 				<Stack.Screen name="ArticulosView" component={ArticulosView} />
 				<Stack.Screen name="FrmCompra" component={FrmCompra} /> 
 				<Stack.Screen name="FrmDetalleCompra" component={FrmDetalleCompra} /> 
+				<Stack.Screen name="FrmArticulo" component={FrmArticulo} /> 
 				<Stack.Screen name="ProveedorView" component={ProveedorView} />
 				<Stack.Screen name="CompraView" component={CompraView}/>
 				<Stack.Screen name="DetalleCompraView" component={DetalleCompraView}/>

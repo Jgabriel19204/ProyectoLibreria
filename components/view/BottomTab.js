@@ -20,7 +20,7 @@ const Tab = createBottomTabNavigator();
           tabBarActiveTintColor:"yellow",
         }}>
         <Tab.Screen name="CompraView" component={CompraView} options={{
-           tabBarBadge:1,
+           tabBarBadge:0,
           tabBarIcon:()=>{
             return <AntDesign name="shoppingcart" size={25} color="white"/>
           }} 
@@ -28,20 +28,13 @@ const Tab = createBottomTabNavigator();
         }/>      
           <Tab.Screen name="ArticulosView" component={ArticulosView} 
           options={{
-            tabBarBadge:4,
+            tabBarBadge:0,
           tabBarIcon:()=>{
-            return <AntDesign name="BookOutlined " size={25} color="white"/>
+            return <AntDesign name="edit" size={25} color="white"/>
           }} 
         
-        } 
-       
-          />
-          <Tab.Screen name="Todos los detales" component={DetalleCompraView}options={{ /* de prueba*/
-            tabBarBadge:1,
-            tabBarIcon:()=>{
-              return <AntDesign name="tag" size={25} color="white"/>
-            }} 
-          } />
+        }/>
+          
     </Tab.Navigator>
     );
 }
