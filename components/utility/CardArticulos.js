@@ -1,4 +1,5 @@
-import { StyleSheet, Button, Text, View} from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View} from "react-native";
+import Flatbutton2 from "../../button/button2";
 
 
 
@@ -9,11 +10,18 @@ const CardArticulo = (props) => {
 			<Text style={styles.Atribute}>Nombre: {props.data.nombrearticulo} </Text>
 			{/* <Text style={styles.Atribute}>Fecha: {props.data.FechaCreacion} </Text> */}
 
-			<Button 
-				title="Ver Detalle"
+			<TouchableOpacity 
+				title="Add"
 				color="#168aad"
-
-			></Button>
+				onPress={() => {
+					props.selecct ? props.GuardarArticulo(props.data.idarticulo, props.data.nombrearticulo) : false
+				   }}
+	   
+				   style = {styles.button} >
+					   {
+						   props.selecct ? <Text style = {styles.ButtonText}>Seleccionar</Text> : <Text style = {styles.ButtonText}>Mas informacion</Text>
+					   }
+			</TouchableOpacity>
 		
 		
 
@@ -50,6 +58,10 @@ const styles = StyleSheet.create({
 		borderRadius: 4,
 		elevation: 3,
 		backgroundColor: 'black',
-	  },
+	  },ButtonText: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 17
+      }
 	 
 });

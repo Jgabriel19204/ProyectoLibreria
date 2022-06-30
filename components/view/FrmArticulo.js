@@ -4,12 +4,22 @@ import { StyleSheet, Text, Button, View, ActivityIndicator, TextInput, ScrollVie
 import Flatbutton, { } from "../../button/button";
 
 import Flatbutton2, { } from "../../button/button2";
+import { TblArticulos } from '../../Model/TblArticulos';
 
 class FrmArticulo extends React.Component {
     constructor(props) {
-        super();
-        this.state = {}
+        super()
+            this.props=props;
+            this.articulo= new TblArticulos();
+            this.state ={
 
+            }
+        
+
+    }
+    GuardarArticulo = async()=>{
+        await this.articulo.Save("idarticulo");
+        this.CargarArticulos();
     }
     render() {
         return (<ScrollView style={styles.container}>

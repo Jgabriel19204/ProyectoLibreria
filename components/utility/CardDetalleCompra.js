@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "#212529",
 		// height: "20%",
 		padding: 20,
-		margin: 15,
 		borderRadius: 10
 	},
 	Title: {

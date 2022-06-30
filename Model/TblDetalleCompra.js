@@ -1,4 +1,5 @@
 import { Entity } from "./Core/Entity";
+import { TblArticulos } from "./TblArticulos";
 
 class TblDetalleCompra extends Entity{
 
@@ -18,5 +19,21 @@ class TblDetalleCompra extends Entity{
       preciocompra= "";
       cantidadcompra= "";
       descuentocompra= "";
+
+      TblArticulos = {
+        val: [],
+        get: async ()=> {
+            if (this.idarticulo != "") {
+                const articulo = new TblArticulos();
+
+                return await articulo.GetByProps("idarticulo", this.idarticulo);
+            }else{
+                return this.TblArticulos.val;
+            }            
+        }, set(newValue) {
+            this.TblDetalleCompra.val = newValue;
+        }
+    }
+
 }
 export {TblDetalleCompra};

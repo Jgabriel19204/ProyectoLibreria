@@ -16,28 +16,19 @@ class TblArticulos extends Entity   {
 	idcategoria = "";
 	idmarca = "";
 
-	//   TblBloqueCurso ={
-	//   	val: [],
-	//    	get: async()=> {
-	//  		if (this.IdCurso != "") {
-	//   			const Bloques = new TblBloqueCurso();
-	//   			return await Bloques.GetByProps("IdCurso", this.IdCurso); 
-	//   		} else{
-	//   			return this.TblBloqueCurso.val
-	//   		}
-	//   	},
-	//   	set:(newValue)=> {
-	//   		this.val = newValue;
-	//   	}
-	//   }
-
-
-	//  Get = async (param) => {
-	//  	const Articulos = await import("../APIDatabase/TblArticulo.json");
-	//  	const ArticuloFilt = Articulos.default.filter((c) =>
-	//  		c.nombrearticulo.toUpperCase().includes(param.toUpperCase())
-	// 	);
-	// return ArticuloFilt.map((c) => new TblArticulos(c));
-	//  }
+	TblArticulos ={
+		val: [],
+	 	get: async()=> {
+			if (this.idarticulo != "") {
+				const CargarArticuloVenta = new TblArticulos();
+				return await CargarArticuloVenta.GetByProps("idarticulo", this.idarticulo); 
+			} else{
+				return this.TblArticulos.val
+			}
+		},
+		set:(newValue)=> {
+			this.val = newValue;
+		}
+	}
 }
 export { TblArticulos };

@@ -56,7 +56,8 @@ class CompraView extends React.Component {
 				<Flatbutton  text='<- Regresar' onPress={() =>
                 this.props.navigation.navigate("Home")}/>
                  <Flatbutton text="+ Realizar Nueva Compra" onPress={()=>{
-				this.props.navigation.navigate("FrmCompra");
+				this.props.navigation.navigate("FrmCompra",{
+				CargarCompra:this.CargarCompra});
 				}}/> 
 				<TextInput
 					style={styles.InputStyle}

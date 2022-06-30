@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View,Button } from "react-native";
+import { TouchableOpacity } from "react-native-web";
 
 
 
@@ -8,11 +9,13 @@ const CardProveedores = (props) => {
 			<Text style={styles.Title}>PROVEEDORES</Text>
 			<Text style={styles.Atribute}>Nombre: {props.data.nombreproveedor} </Text>
 			
-			<Button 
-				title="Ver Detalle"
-				color="#168aad"
+			<TouchableOpacity onPress={() => {
+            props.SeleccionProveedor(props.data.idproveedor, props.data.nombreproveedor);
+            }}
 
-			></Button>
+            style = {styles.Button} >
+            <Text style = {styles.ButtonText}>Seleccionar</Text>
+       </TouchableOpacity>
 		</View>
 	);
 };
@@ -35,5 +38,18 @@ const styles = StyleSheet.create({
 	Atribute: {
 		color: "#e9ecef",
 		fontSize: 20,
-	},
+	},    Button: {
+        marginTop: 10,
+        paddingTop: 10,
+        paddingBottom: 10,
+        backgroundColor: 'black',
+        borderRadius: 8,
+        borderWidth: 1,
+        borderColor: 'white'
+    },
+    ButtonText: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 17
+      }
 });

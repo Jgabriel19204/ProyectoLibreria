@@ -12,7 +12,7 @@ class TblProveedor extends Entity{
     ApiMethods = {
         Get: "TblProveedor"  
       }
-      idproveedor= "";
+    idproveedor= "";
     nombreproveedor="";
     telefonoproveedor="";
     direccionproveedor= "";
