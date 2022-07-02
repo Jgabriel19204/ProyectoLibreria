@@ -24,57 +24,70 @@ class FrmCompra extends React.Component {
             fecha: Date().toString(),
         }
         this.CargarCompra = this.props.route.params.CargarCompra;
-
-
     }
 
-    GuardarDetalleCompra = async (Detalle = (new TblDetalleCompra), key) => {
+    // GuardarDetalleCompra = async (Detalle = (new TblDetalleCompra), key, flag) => {
 
-        if (this.state.detallecompra.length > 0) {
+    //     if (this.state.detallecompra.length > 0) {
 
-            const detallecompras = this.state.detallecompra.map(p => {
-                if (p.idarticulo === key) {
-                    this.keys = p.idarticulo;
+    //         const detallecompras = this.state.detallecompra.map(p => {
+    //             if (p.idarticulo === key) {
+    //                 this.keys = p.idarticulo;
 
+    //             }
+    //             return p;
+    //         });
 
-                    return p;
-                }
-                return p;
-            });
+    //         console.log(this.keys + " == " + key);
 
-            console.log(this.keys + " == " + key);
-
-            if (this.keys == key) {
+    //         if (this.keys == key) {
 
 
-                this.setState({
-                    detallecompra: detallecompras,
-                    Total: this.OpA,
-                    IVA: this.OpB
-                });
+    //             this.setState({
+    //                 detallecompra: detallecompras,
+    //             });
 
-            } else {
+    //         } else {
 
-                this.state.detallecompra.push(Detalle);
+    //             this.state.detallecompra.push(Detalle);
 
-                this.setState({
-                    detallecompra: this.state.detallecompra,
+    //             this.setState({
+    //                 detallecompra: this.state.detallecompra
 
-                });
+    //             });
 
-            }
+    //         }
 
-        } else {
+    //     } else {
 
-            this.state.detallecompra.push(Detalle);
+    //         this.state.detallecompra.push(Detalle);
 
-            this.setState({
-                detallecompra: this.state.detallecompra,
+    //         this.setState({
+    //             detallecompra: this.state.detallecompra,
 
-            });
-        }
+    //         });
+    //     }
 
 
+    //     this.props.navigation.navigate("FrmCompra");
+    // }
+
+    // GuardarDetalleCompra = async (Detalle = (new TblDetalleCompra())) => {
+    // 	Detalle.idcompra = this.compra.idcompra;
+    // 	await Detalle.Save("iddetallecompra");
+    // 	const DetalleCompra = await this.compra.TblDetalleCompra.get();
+    // 	this.setState({
+    // 		Dataset: DetalleCompra
+    // 	})
+    // 	this.props.navigation.navigate("FrmCompra");
+    // 	//this.props.navigation.navigate('FrmContenido', {Dataset: this.Curso})
+    // }
+    
+    GuardarDetalleCompra = async (Detalle = (new TblDetalleCompra())) => {
+        this.state.detallecompra.push(Detalle);
+        this.setState({
+            detallecompra: this.state.detallecompra
+        })
         this.props.navigation.navigate("FrmCompra");
     }
 
@@ -88,6 +101,18 @@ class FrmCompra extends React.Component {
         this.compra.idproveedor = key;
     }
 
+    Save = async () => {
+        this.compra.fechacompra = this.state.fecha;
+
+        await this.compra.Save("idcompra");
+
+        for (const key in this.state.detallecompra) {
+            const detallecompra = this.state.detallecompra[key];
+            detallecompra.idcompra = this.compra.idcompra;
+            await detallecompra.Save("iddetallecompra");
+        }
+        this.CargarCompra();
+    }
 
 
 
@@ -138,7 +163,6 @@ class FrmCompra extends React.Component {
                         />
                     )
                 }
-
             </ScrollView>
 
             <View style={styles.FrmProveedor}>
@@ -176,8 +200,22 @@ class FrmCompra extends React.Component {
 
 
             <Flatbutton2 text='Finalizar Compra' onPress={async () => {
-                await this.GuardarCompra();
+                await this.Save();
                 this.props.navigation.navigate("CompraView");
+                // if (response) {
+                //     await this.CargarCompra();
+                //     this.setState({
+                //         ID: "",
+                //         detallecompra: [],
+                //         proveedor: "",
+                //         fecha: Date().toString(),
+                //     });
+
+                //     this.props.navigation.navigate("CompraView");
+                // } else {
+                //     Alert.alert("no funciona");
+                // }
+
             }} ></Flatbutton2>
 
 
@@ -233,7 +271,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 15,
         backgroundColor: "black",
-        alignSelf:'center' ,
+        alignSelf: 'center',
         width: 300,
     }, ButtonText: {
         color: 'white',

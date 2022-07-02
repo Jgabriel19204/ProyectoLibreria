@@ -2,7 +2,6 @@ import { TabActions } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Text, View, ActivityIndicator, TextInput, ScrollView, Button } from "react-native";
 import Flatbutton from "../../button/button";
-import Flatbutton2 from "../../button/button2";
 //Model
 import { TblCompra } from "../../Model/TblCompra";
 //Components

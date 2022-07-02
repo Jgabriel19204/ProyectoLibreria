@@ -80,7 +80,7 @@ class FrmDetalleCompra extends React.Component {
 
 
             <Flatbutton2 text='Finalizar Compra' onPress={async () => {
-                 this.GuardarDetalleCompra(this.Detalle, this.state.Id, this.flag); 
+                await this.GuardarDetalleCompra(this.Detalle); 
             }} />
             <Flatbutton text='Cancelar y Regresar' onPress={() =>
                 this.props.navigation.navigate("ArticulosView")} />
